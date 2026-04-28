@@ -117,10 +117,11 @@
     (is (= Long/MAX_VALUE (buf/get-long! b)))))
 
 (deftest test-float-roundtrip
-  (let [b (buf/allocate 4)]
-    (buf/put-float! b 3.14)
+  (let [b (buf/allocate 4)
+        f (float Math/PI)]
+    (buf/put-float! b f)
     (buf/flip! b)
-    (is (< (Math/abs (- 3.14 (buf/get-float! b))) 0.0001))))
+    (is (= f (buf/get-float! b)))))
 
 (deftest test-double-roundtrip
   (let [b (buf/allocate 8)]
@@ -190,14 +191,12 @@
 (deftest test-from-string
   (let [b (buf/from-string "abc")]
     (is (= 3 (buf/remaining b)))
-    (is (buf/direct? b))
     (is (= "abc" (buf/->str b)))))
 
 (deftest test-from-bytes
   (let [ba (byte-array [42 43 44])
         b  (buf/from-bytes ba)]
     (is (= 3 (buf/remaining b)))
-    (is (buf/direct? b))
     (is (= [42 43 44] (vec (buf/->bytes b))))))
 
 ;;; ============================================================

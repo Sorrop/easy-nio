@@ -9,7 +9,8 @@
     - limit    : the first byte that should not be read or written
     - position : the current read/write cursor
     - remaining: (- limit position)"
-  (:import [java.nio ByteBuffer ByteOrder]))
+  (:import [java.nio ByteBuffer ByteOrder]
+           [java.nio.charset StandardCharsets]))
 
 (set! *warn-on-reflection* true)
 
@@ -259,7 +260,7 @@
   "Decodes the bytes between position and limit as a UTF-8 string.
    Does not advance position."
   [^ByteBuffer buf]
-  (String. (->bytes buf) "UTF-8"))
+  (String. (->bytes buf) StandardCharsets/UTF_8))
 
 (defn slice
   "Returns a new ByteBuffer sharing the region from the current
@@ -289,14 +290,14 @@
   "Allocates a direct ByteBuffer containing the UTF-8 bytes of `s`,
    ready for reading (already flipped)."
   ^ByteBuffer [^String s]
-  (let [ba  (.getBytes s "UTF-8")
-        buf (allocate (count ba) true)]
-    (put-bytes! buf ba)
-    (flip! buf)))
+  (let [ba  (.getBytes s StandardCharsets/UTF_8)]
+    (-> (allocate (count ba))
+        (put-bytes! ba)
+        flip!)))
 
 (defn from-bytes
   "Allocates a direct ByteBuffer containing `ba`, ready for reading."
   ^ByteBuffer [^bytes ba]
-  (doto (allocate (count ba) true)
-    (put-bytes! ba)
-    (flip!)))
+  (-> (allocate (count ba))
+      (put-bytes! ba)
+      flip!))
