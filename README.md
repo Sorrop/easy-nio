@@ -4,9 +4,7 @@ A Clojure library that wraps `java.nio` so you don't have to.
 
 ## Installation
 
-```clojure
-[easy-nio "0.1.0"]
-```
+Clone + `lein install` (not yet deployed)
 
 ## Namespaces
 
