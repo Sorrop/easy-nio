@@ -1,14 +1,30 @@
 # easy-nio
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library that wraps `java.nio` so you don't have to.
 
-## Usage
+## Installation
 
-FIXME
+```clojure
+[easy-nio "0.1.0"]
+```
+
+## Namespaces
+
+| Namespace | What it covers |
+|---|---|
+| `easy-nio.buffer` | ByteBuffer allocation, reading, writing |
+| `easy-nio.channel` | SocketChannel, ServerSocketChannel, DatagramChannel |
+| `easy-nio.selector` | Non-blocking I/O multiplexing |
+| `easy-nio.file` | FileChannel, memory-mapped files, file locking |
+| `easy-nio.protocols` | NIOChannel, StreamReadable, StreamWritable, DatagramIO |
+
+---
+
+
 
 ## License
 
-Copyright © 2026 FIXME
+Copyright © 2026
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
