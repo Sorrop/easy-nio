@@ -155,3 +155,9 @@
    not yet ready."
   [^Selector sel]
   (.keys sel))
+
+(defn clear-keys!
+  "Removes all keys from the selected-key set after processing.
+   Call this after all keys in `selected` have been handled."
+  [^java.util.Set selected]
+  (.clear selected))
