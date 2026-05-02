@@ -1,10 +1,20 @@
 # easy-nio
 
+[![Clojars Project](https://img.shields.io/clojars/v/net.clojars.sorrop/easy-nio.svg)](https://clojars.org/net.clojars.sorrop/easy-nio)
+
 A Clojure library that wraps `java.nio` so you don't have to.
 
 ## Installation
 
-Clone + `lein install` (not yet deployed)
+Leiningen:
+```
+[net.clojars.sorrop/easy-nio "1.0.0"]
+```
+
+Clojure cli/deps:
+```
+net.clojars.sorrop/easy-nio {:mvn/version "1.0.0"}
+```
 
 ## Namespaces
 
@@ -18,7 +28,7 @@ Clone + `lein install` (not yet deployed)
 
 ---
 
-See basic examples in doc/
+See basic examples in `doc/`
 
 ## License
 
