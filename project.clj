@@ -1,4 +1,4 @@
-(defproject net.clojars.sorrop/easy-nio "1.0.0-SNAPSHOT"
+(defproject net.clojars.sorrop/easy-nio "1.0.0"
   :description "A collection of clojure wrappers around java.nio facilities"
   :url "https://github.com/Sorrop/easy-nio"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
