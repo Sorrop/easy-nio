@@ -18,7 +18,7 @@ Clone + `lein install` (not yet deployed)
 
 ---
 
-
+See basic examples in doc/
 
 ## License
 
